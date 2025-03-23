@@ -30,80 +30,10 @@ let permissions = {
         configValue: undefined,
         wasSet: false
     },
-    Height: {
-        variableName: "Height",
-        readPermission: "android.permission.health.READ_HEIGHT",
-        writePermission: "android.permission.health.WRITE_HEIGHT",
-        configValue: undefined,
-        wasSet: false
-    },
-    CaloriesBurned: {
-        variableName: "CaloriesBurned",
-        readPermission: "android.permission.health.READ_TOTAL_CALORIES_BURNED",
-        writePermission: "android.permission.health.WRITE_TOTAL_CALORIES_BURNED",
-        configValue: undefined,
-        wasSet: false
-    },
-    Sleep: {
-        variableName: "Sleep",
-        readPermission: "android.permission.health.READ_SLEEP",
-        writePermission: "android.permission.health.WRITE_SLEEP",
-        configValue: undefined,
-        wasSet: false
-    },
     BloodPressure: {
         variableName: "BloodPressure",
         readPermission: "android.permission.health.READ_BLOOD_PRESSURE",
         writePermission: "android.permission.health.WRITE_BLOOD_PRESSURE",
-        configValue: undefined,
-        wasSet: false
-    },
-    BloodGlucose: {
-        variableName: "BloodGlucose",
-        readPermission: "android.permission.health.READ_BLOOD_GLUCOSE",
-        writePermission: "android.permission.health.WRITE_BLOOD_GLUCOSE",
-        configValue: undefined,
-        wasSet: false
-    },
-    BodyFatPercentage: {
-        variableName: "BodyFatPercentage",
-        readPermission: "android.permission.health.READ_BODY_FAT",
-        writePermission: "android.permission.health.WRITE_BODY_FAT",
-        configValue: undefined,
-        wasSet: false
-    },
-    BasalMetabolicRate: {
-        variableName: "BasalMetabolicRate",
-        readPermission: "android.permission.health.READ_BASAL_METABOLIC_RATE",
-        writePermission: "android.permission.health.WRITE_BASAL_METABOLIC_RATE",
-        configValue: undefined,
-        wasSet: false
-    },
-    WalkingSpeed: {
-        variableName: "WalkingSpeed",
-        readPermission: "android.permission.health.READ_SPEED",
-        writePermission: "android.permission.health.WRITE_SPEED",
-        configValue: undefined,
-        wasSet: false
-    },
-    Distance: {
-        variableName: "Distance",
-        readPermission: "android.permission.health.READ_DISTANCE",
-        writePermission: "android.permission.health.WRITE_DISTANCE",
-        configValue: undefined,
-        wasSet: false
-    },
-    OxygenSaturation: {
-        variableName: "OxygenSaturation",
-        readPermission: "android.permission.health.READ_OXYGEN_SATURATION",
-        writePermission: "android.permission.health.WRITE_OXYGEN_SATURATION",
-        configValue: undefined,
-        wasSet: false
-    },
-    BodyTemperature: {
-        variableName: "BodyTemperature",
-        readPermission: "android.permission.health.READ_BODY_TEMPERATURE",
-        writePermission: "android.permission.health.WRITE_BODY_TEMPERATURE",
         configValue: undefined,
         wasSet: false
     }
@@ -122,19 +52,19 @@ let groupPermissions = {
         // we'll use these to know if we should set individual permissions or not
         // e.g. when checking HeartRate, if all healthVariables were already set, we don't need to add it again
         wasSet: false,
-        groupVariables: ["Steps", "CaloriesBurned", "WalkingSpeed", "Distance"]
+        groupVariables: ["Steps"]
     },
     HealthVariables: {
         variableName: "HealthVariables",
         configValue: undefined,
         wasSet: false,
-        groupVariables: ["HeartRate", "Sleep", "BloodPressure", "BloodGlucose", "OxygenSaturation", "BodyTemperature"]
+        groupVariables: ["HeartRate","BloodPressure"]
     },
     ProfileVariables: {
         variableName: "ProfileVariables",
         configValue: undefined,
         wasSet: false,
-        groupVariables: ["Weight", "Height", "BodyFatPercentage", "BasalMetabolicRate"]
+        groupVariables: ["Weight"]
     }
 }
 
