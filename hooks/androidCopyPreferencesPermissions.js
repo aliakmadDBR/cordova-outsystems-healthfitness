@@ -11,26 +11,26 @@ let permissions = {
     HeartRate: {
         variableName: "HeartRate",
         readPermission: "android.permission.health.READ_HEART_RATE",
-        configValue: READ,
+        configValue: undefined,
         // we'll use these to know if we should write group permissions or not
         wasSet: false
     },
     Steps: {
         variableName: "Steps",
         readPermission: "android.permission.health.READ_STEPS",
-        configValue: READ,
+        configValue: undefined,
         wasSet: false
     },
     Weight: {
         variableName: "Weight",
         readPermission: "android.permission.health.READ_WEIGHT",
-        configValue: READ,
+        configValue: undefined,
         wasSet: false
     },
     BloodPressure: {
         variableName: "BloodPressure",
         readPermission: "android.permission.health.READ_BLOOD_PRESSURE",
-        configValue: READ,
+        configValue: undefined,
         wasSet: false
     }
 }
