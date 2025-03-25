@@ -210,11 +210,11 @@ function addHealthConnectPermissionsToXmlFiles(configParser, projectRoot, parser
     // process each individual variable
     for(const key in permissions){
         let p = permissions[key]
-        if (p.configValue == READWRITE || p.configValue == READ) {
+        if ((p.configValue == READWRITE || p.configValue == READ) && typeof(p.readPermission) !== undefined) {
             p.wasSet = true;
             processPermission(manifestXmlDoc, permissionsXmlDoc, arrayElement, p.readPermission)
         }
-        if (p.configValue == READWRITE || p.configValue == WRITE) {
+        if ((p.configValue == READWRITE || p.configValue == WRITE) && typeof(p.writePermission) !== undefined) {
             p.wasSet = true;
             processPermission(manifestXmlDoc, permissionsXmlDoc, arrayElement, p.writePermission)
         }
@@ -226,7 +226,7 @@ function addHealthConnectPermissionsToXmlFiles(configParser, projectRoot, parser
         if (p.configValue == READWRITE || p.configValue == READ) {
             p.wasSet = true;
             p.groupVariables.forEach( v => {
-                if (!permissions[v].wasSet) {
+                if (!permissions[v].wasSet && typeof(p.readPermission) !== undefined) {
                     processPermission(manifestXmlDoc, permissionsXmlDoc, arrayElement, permissions[v].readPermission)
                 }
             })
@@ -234,7 +234,7 @@ function addHealthConnectPermissionsToXmlFiles(configParser, projectRoot, parser
         if (p.configValue == READWRITE || p.configValue == WRITE) {
             p.wasSet = true;
             p.groupVariables.forEach( v => {
-                if (!permissions[v].wasSet) {
+                if (!permissions[v].wasSet && typeof(p.writePermission) !== undefined) {
                     processPermission(manifestXmlDoc, permissionsXmlDoc, arrayElement, permissions[v].writePermission)
                 }
             })
