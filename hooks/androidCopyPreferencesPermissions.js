@@ -226,7 +226,7 @@ function addHealthConnectPermissionsToXmlFiles(configParser, projectRoot, parser
         if (p.configValue == READWRITE || p.configValue == READ) {
             p.wasSet = true;
             p.groupVariables.forEach( v => {
-                if (!permissions[v].wasSet && p.readPermission !== undefined) {
+                if (!permissions[v].wasSet && permissions[v].readPermission !== undefined) {
                     processPermission(manifestXmlDoc, permissionsXmlDoc, arrayElement, permissions[v].readPermission)
                 }
             })
@@ -234,7 +234,7 @@ function addHealthConnectPermissionsToXmlFiles(configParser, projectRoot, parser
         if (p.configValue == READWRITE || p.configValue == WRITE) {
             p.wasSet = true;
             p.groupVariables.forEach( v => {
-                if (!permissions[v].wasSet && p.writePermission !== undefined) {
+                if (!permissions[v].wasSet && permissions[v].writePermission !== undefined) {
                     processPermission(manifestXmlDoc, permissionsXmlDoc, arrayElement, permissions[v].writePermission)
                 }
             })
