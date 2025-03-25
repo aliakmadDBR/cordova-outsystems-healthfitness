@@ -11,6 +11,9 @@ let permissions = {
     HeartRate: {
         variableName: "HeartRate",
         readPermission: "android.permission.health.READ_HEART_RATE",
+        //writePermission: "android.permission.health.WRITE_HEART_RATE",
+        //readPermission: undefined,
+        writePermission: undefined,
         configValue: undefined,
         // we'll use these to know if we should write group permissions or not
         wasSet: false
@@ -18,18 +21,117 @@ let permissions = {
     Steps: {
         variableName: "Steps",
         readPermission: "android.permission.health.READ_STEPS",
+        //writePermission: "android.permission.health.WRITE_STEPS",
+        //readPermission: undefined,
+        writePermission: undefined,
         configValue: undefined,
         wasSet: false
     },
     Weight: {
         variableName: "Weight",
         readPermission: "android.permission.health.READ_WEIGHT",
+        //writePermission: "android.permission.health.WRITE_WEIGHT",
+        //readPermission: undefined,
+        writePermission: undefined,
+        configValue: undefined,
+        wasSet: false
+    },
+    Height: {
+        variableName: "Height",
+        //readPermission: "android.permission.health.READ_HEIGHT",
+        //writePermission: "android.permission.health.WRITE_HEIGHT",
+        readPermission: undefined,
+        writePermission: undefined,
+        configValue: undefined,
+        wasSet: false
+    },
+    CaloriesBurned: {
+        variableName: "CaloriesBurned",
+        //readPermission: "android.permission.health.READ_TOTAL_CALORIES_BURNED",
+        //writePermission: "android.permission.health.WRITE_TOTAL_CALORIES_BURNED",
+        readPermission: undefined,
+        writePermission: undefined,
+        configValue: undefined,
+        wasSet: false
+    },
+    Sleep: {
+        variableName: "Sleep",
+        //readPermission: "android.permission.health.READ_SLEEP",
+        //writePermission: "android.permission.health.WRITE_SLEEP",
+        readPermission: undefined,
+        writePermission: undefined,
         configValue: undefined,
         wasSet: false
     },
     BloodPressure: {
         variableName: "BloodPressure",
         readPermission: "android.permission.health.READ_BLOOD_PRESSURE",
+        //writePermission: "android.permission.health.WRITE_BLOOD_PRESSURE",
+        //readPermission: undefined,
+        writePermission: undefined,
+        configValue: undefined,
+        wasSet: false
+    },
+    BloodGlucose: {
+        variableName: "BloodGlucose",
+        //readPermission: "android.permission.health.READ_BLOOD_GLUCOSE",
+        //writePermission: "android.permission.health.WRITE_BLOOD_GLUCOSE",
+        readPermission: undefined,
+        writePermission: undefined,
+        configValue: undefined,
+        wasSet: false
+    },
+    BodyFatPercentage: {
+        variableName: "BodyFatPercentage",
+        //readPermission: "android.permission.health.READ_BODY_FAT",
+        //writePermission: "android.permission.health.WRITE_BODY_FAT",
+        readPermission: undefined,
+        writePermission: undefined,
+        configValue: undefined,
+        wasSet: false
+    },
+    BasalMetabolicRate: {
+        variableName: "BasalMetabolicRate",
+        //readPermission: "android.permission.health.READ_BASAL_METABOLIC_RATE",
+        //writePermission: "android.permission.health.WRITE_BASAL_METABOLIC_RATE",
+        readPermission: undefined,
+        writePermission: undefined,
+        configValue: undefined,
+        wasSet: false
+    },
+    WalkingSpeed: {
+        variableName: "WalkingSpeed",
+        //readPermission: "android.permission.health.READ_SPEED",
+        //writePermission: "android.permission.health.WRITE_SPEED",
+        readPermission: undefined,
+        writePermission: undefined,
+        configValue: undefined,
+        wasSet: false
+    },
+    Distance: {
+        variableName: "Distance",
+        //readPermission: "android.permission.health.READ_DISTANCE",
+        //writePermission: "android.permission.health.WRITE_DISTANCE",
+        readPermission: undefined,
+        writePermission: undefined,
+        configValue: undefined,
+        wasSet: false
+    },
+    OxygenSaturation: {
+        variableName: "OxygenSaturation",
+        //readPermission: "android.permission.health.READ_OXYGEN_SATURATION",
+        //writePermission: "android.permission.health.WRITE_OXYGEN_SATURATION",
+        readPermission: undefined,
+        writePermission: undefined,
+        configValue: undefined,
+        wasSet: false
+    },
+    BodyTemperature: {
+        variableName: "BodyTemperature",
+        //readPermission: "android.permission.health.READ_BODY_TEMPERATURE",
+        //writePermission: "android.permission.health.WRITE_BODY_TEMPERATURE",
+        readPermission: undefined,
+        writePermission: undefined,
         configValue: undefined,
         wasSet: false
     }
@@ -157,8 +259,13 @@ function addHealthConnectPermissionsToXmlFiles(configParser, projectRoot, parser
     // if there is no AllVariables nor anything else, then by default we add all the permissions
     if (numberOfPermissions == 0) {
         permissionValues.forEach( p => {
-            processPermission(manifestXmlDoc, permissionsXmlDoc, arrayElement, p.readPermission)
-            processPermission(manifestXmlDoc, permissionsXmlDoc, arrayElement, p.writePermission)
+
+            if(typeof(p.readPermission) !== undefined){
+                processPermission(manifestXmlDoc, permissionsXmlDoc, arrayElement, p.readPermission)
+            }
+            if(typeof(p.writePermission) !== undefined){
+                processPermission(manifestXmlDoc, permissionsXmlDoc, arrayElement, p.writePermission)
+            }
         })
     }
 
