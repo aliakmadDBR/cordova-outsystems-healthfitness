@@ -291,7 +291,13 @@ function processAllVariables(manifestXmlDoc, permissionsXmlDoc, arrayElement, pe
     groupPermissionsValues.forEach(p => {
         p.groupVariables.forEach( v => {
             if (!p.wasSet && !permissions[v].wasSet) {
-                processPermission(manifestXmlDoc, permissionsXmlDoc, arrayElement, permissionOperation == READ ? permissions[v].readPermission : permissions[v].writePermission)
+                if(permissionOperation == READ && typeof(permissions[v].readPermission) !== undefined){
+                    processPermission(manifestXmlDoc, permissionsXmlDoc, arrayElement, permissions[v].readPermission)
+                } 
+                if(permissionOperation == WRITE && typeof(permissions[v].writePermission) !== undefined){
+                    processPermission(manifestXmlDoc, permissionsXmlDoc, arrayElement, permissions[v].writePermission)
+                }
+                
             }
         })
     })  
