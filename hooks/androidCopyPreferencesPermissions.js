@@ -150,19 +150,19 @@ let groupPermissions = {
         // we'll use these to know if we should set individual permissions or not
         // e.g. when checking HeartRate, if all healthVariables were already set, we don't need to add it again
         wasSet: false,
-        groupVariables: ["Steps"]
+        groupVariables: ["Steps", "CaloriesBurned", "WalkingSpeed", "Distance"]
     },
     HealthVariables: {
         variableName: "HealthVariables",
         configValue: undefined,
         wasSet: false,
-        groupVariables: ["HeartRate","BloodPressure"]
+        groupVariables: ["HeartRate", "Sleep", "BloodPressure", "BloodGlucose", "OxygenSaturation", "BodyTemperature"]
     },
     ProfileVariables: {
         variableName: "ProfileVariables",
         configValue: undefined,
         wasSet: false,
-        groupVariables: ["Weight"]
+        groupVariables: ["Weight", "Height", "BodyFatPercentage", "BasalMetabolicRate"]
     }
 }
 
